@@ -8,13 +8,13 @@ ENV cmake_installer cmake-$cmake_version_major.$cmake_version_minor.$cmake_versi
 RUN wget --no-verbose https://cmake.org/files/v$cmake_version_major.$cmake_version_minor/$cmake_installer
 RUN sh ./$cmake_installer --prefix=/usr --skip-license
 
-# SDL2 prerequisites
 RUN apt-get update && apt-get install -y \
+  # Conan prerequisite
+  python3-pip \
+  # SDL2 prerequisites
   freeglut3-dev \
-  libasound2-dev
-
-# SFML prerequisites
-RUN apt-get update && apt-get install -y \
+  libasound2-dev \
+  # SFML prerequisites
   libflac-dev \
   libfreetype6-dev \
   libjpeg-dev \
@@ -22,3 +22,5 @@ RUN apt-get update && apt-get install -y \
   libudev-dev \
   libvorbis-dev \
   libxrandr-dev
+
+RUN pip3 install conan
