@@ -36,3 +36,7 @@ RUN mkdir test; \
     sed -i 's/libstdc++/libstdc++11/' /root/.conan/profiles/default; \
     cd ..; \
     rm -rf test
+
+RUN gcc --version
+RUN cmake --version
+RUN conan --version
