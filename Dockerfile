@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     libxrandr-dev
 
 RUN pip3 install conan
+RUN conan remote add conan https://api.bintray.com/conan/stever/conan
 
 # Run 'conan new' to create a default profile then update it
 # to prevent an 'OLD ABI' warning.
@@ -35,7 +36,3 @@ RUN mkdir test; \
     sed -i 's/libstdc++/libstdc++11/' /root/.conan/profiles/default; \
     cd ..; \
     rm -rf test
-
-RUN gcc --version
-RUN cmake --version
-RUN conan --version
