@@ -29,12 +29,12 @@ RUN conan remote add conan https://api.bintray.com/conan/stever/conan
 
 # Run 'conan new' to create a default profile then update it
 # to prevent an 'OLD ABI' warning.
-RUN mkdir test; \
-    cd test; \
-    conan new test/0.0.1@steve/testing; \
-    conan install .; \
-    sed -i 's/libstdc++/libstdc++11/' /root/.conan/profiles/default; \
-    cd ..; \
+RUN mkdir test && \
+    cd test && \
+    conan new test/0.0.1@steve/testing && \
+    conan install . && \
+    sed -i 's/libstdc++/libstdc++11/' /root/.conan/profiles/default && \
+    cd .. && \
     rm -rf test
 
 RUN gcc --version
