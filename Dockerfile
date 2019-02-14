@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     # SDL2 prerequisites
     freeglut3-dev \
     libasound2-dev \
+    libusb-dev \
     # SFML prerequisites
     libflac-dev \
     libfreetype6-dev \
