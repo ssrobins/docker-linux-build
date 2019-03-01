@@ -1,7 +1,6 @@
 FROM gcc:8.2.0
 
 RUN apt-get update && apt-get install -y \
-# Conan prerequisite
 python3-pip \
 # SDL2 prerequisites
 freeglut3-dev \
