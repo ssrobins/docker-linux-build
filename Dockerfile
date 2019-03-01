@@ -10,20 +10,20 @@ RUN sh ./$cmake_installer --prefix=/usr --skip-license
 RUN rm $cmake_installer
 
 RUN apt-get update && apt-get install -y \
-    # Conan prerequisite
-    python3-pip \
-    # SDL2 prerequisites
-    freeglut3-dev \
-    libasound2-dev \
-    libusb-dev \
-    # SFML prerequisites
-    libflac-dev \
-    libfreetype6-dev \
-    libjpeg-dev \
-    libopenal-dev \
-    libudev-dev \
-    libvorbis-dev \
-    libxrandr-dev
+# Conan prerequisite
+python3-pip \
+# SDL2 prerequisites
+freeglut3-dev \
+libasound2-dev \
+libusb-dev \
+# SFML prerequisites
+libflac-dev \
+libfreetype6-dev \
+libjpeg-dev \
+libopenal-dev \
+libudev-dev \
+libvorbis-dev \
+libxrandr-dev
 
 RUN pip3 install conan
 RUN conan remote add conan https://api.bintray.com/conan/stever/conan
@@ -31,12 +31,12 @@ RUN conan remote add conan https://api.bintray.com/conan/stever/conan
 # Run 'conan new' to create a default profile then update it
 # to prevent an 'OLD ABI' warning.
 RUN mkdir test && \
-    cd test && \
-    conan new test/0.0.1@steve/testing && \
-    conan install . && \
-    sed -i 's/libstdc++/libstdc++11/' /root/.conan/profiles/default && \
-    cd .. && \
-    rm -rf test
+cd test && \
+conan new test/0.0.1@steve/testing && \
+conan install . && \
+sed -i 's/libstdc++/libstdc++11/' /root/.conan/profiles/default && \
+cd .. && \
+rm -rf test
 
 RUN gcc --version
 RUN cmake --version
