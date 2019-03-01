@@ -1,4 +1,4 @@
-FROM gcc:8.2.0
+FROM gcc:8.3.0
 
 RUN apt-get update && apt-get install -y \
 python3-pip \
