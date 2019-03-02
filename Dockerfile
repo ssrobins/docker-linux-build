@@ -16,7 +16,8 @@ libjpeg-dev \
 libopenal-dev \
 libudev-dev \
 libvorbis-dev \
-libxrandr-dev
+libxrandr-dev && \
+rm -rf /var/lib/apt/lists/*
 
 # CMake
 ARG cmake_version_major=3
