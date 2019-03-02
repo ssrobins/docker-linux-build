@@ -1,7 +1,10 @@
 FROM gcc:8.3.0
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
+python3-dev \
 python3-pip \
+python3-setuptools \
+python3-wheel \
 # SDL2 prerequisites
 freeglut3-dev \
 libasound2-dev \
