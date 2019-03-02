@@ -33,7 +33,8 @@ python3-dev python3-pip python3-setuptools python3-wheel && \
 pip3 install conan==$conan_version && \
 apt-get remove -y \
 python3-dev python3-pip python3-setuptools python3-wheel && \
-rm -rf /var/lib/apt/lists/*
+rm -rf /var/lib/apt/lists/* && \
+apt-get clean
 RUN if [ "$conan_version" != "$(conan --version | grep Conan | cut -d ' ' -f3)" ]; then echo "Conan version $conan_version not found!"; exit 1; fi
 RUN conan remote add conan https://api.bintray.com/conan/stever/conan
 
