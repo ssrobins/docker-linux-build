@@ -1,4 +1,4 @@
-FROM gcc:9.1.0
+FROM gcc:9.2.0
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
 # SDL2 prerequisites
