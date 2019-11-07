@@ -9,5 +9,5 @@ before_script:
 build:
   stage: build
   script:
-    - docker build --pull --tag "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME" .
+    - ./build.sh
     - docker push "$CI_REGISTRY_IMAGE"
