@@ -2,9 +2,6 @@ ARG gcc_version
 FROM gcc:$gcc_version
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-# SDL2 prerequisites
-freeglut3-dev \
-libasound2-dev \
 # SFML prerequisites
 libflac-dev \
 libfreetype6-dev \
