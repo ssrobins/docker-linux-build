@@ -1,17 +1,6 @@
 ARG gcc_version
 FROM gcc:$gcc_version
 
-RUN apt-get update && apt-get install --no-install-recommends -y \
-# SFML prerequisites
-libflac-dev \
-libfreetype6-dev \
-libjpeg-dev \
-libopenal-dev \
-libudev-dev \
-libvorbis-dev \
-libxrandr-dev && \
-rm -rf /var/lib/apt/lists/*
-
 # CMake
 ARG cmake_version=3.16.0-rc3
 ARG cmake_installer=cmake-$cmake_version-Linux-x86_64.sh
