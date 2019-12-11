@@ -2,7 +2,7 @@ ARG gcc_version
 FROM gcc:$gcc_version
 
 # CMake
-ARG cmake_version=3.16.0
+ARG cmake_version=3.16.1
 ARG cmake_installer=cmake-$cmake_version-Linux-x86_64.sh
 RUN wget --no-verbose https://github.com/Kitware/CMake/releases/download/v$cmake_version/$cmake_installer && \
 sh ./$cmake_installer --prefix=/usr --skip-license && \
@@ -19,7 +19,7 @@ rm $ninja_installer
 RUN if [ "$ninja_version" != "$(ninja --version)" ]; then echo "Ninja version $ninja_version not found!"; exit 1; fi
 
 # Conan
-ARG conan_version=1.20.5
+ARG conan_version=1.21.0
 RUN apt-get update && apt-get install --no-install-recommends -y \
 python3-dev python3-pip python3-setuptools python3-wheel && \
 pip3 install conan==$conan_version && \
