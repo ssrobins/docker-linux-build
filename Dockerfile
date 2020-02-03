@@ -1,6 +1,8 @@
 ARG gcc_version
 FROM gcc:$gcc_version
 
+RUN /usr/bin/env python3
+
 # CMake
 ARG cmake_version=3.16.3
 ARG cmake_installer=cmake-$cmake_version-Linux-x86_64.sh
@@ -19,7 +21,7 @@ RUN wget --no-verbose https://github.com/ninja-build/ninja/releases/download/v$n
 RUN if [ "$ninja_version" != "$(ninja --version)" ]; then echo "Ninja version $ninja_version not found!"; exit 1; fi
 
 # Conan
-ARG conan_version=1.21.1
+ARG conan_version=1.21.2
 RUN apt-get update \
 && apt-get install --no-install-recommends -y python3-pip python3-setuptools python3-wheel \
 && pip3 install conan==$conan_version \
