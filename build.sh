@@ -2,7 +2,7 @@ set -e
 
 cd $(dirname "$0")
 
-gcc_version=9.2.0
+gcc_version=9.3.0
 
 if [ -z "$CI_REGISTRY_IMAGE" ]; then
     CI_REGISTRY_IMAGE=docker-linux-build
