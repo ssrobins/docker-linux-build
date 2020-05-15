@@ -1,8 +1,6 @@
 ARG gcc_version
 FROM gcc:$gcc_version
 
-RUN /usr/bin/env python3
-
 # CMake
 ARG cmake_version=3.17.2
 ARG cmake_installer=cmake-$cmake_version-Linux-x86_64.sh
