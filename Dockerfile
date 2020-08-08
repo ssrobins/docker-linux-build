@@ -11,11 +11,11 @@ RUN if [ "$cmake_version" != "$(cmake --version | head -n 1 | cut -d ' ' -f3)" ]
 
 # Ninja
 ARG ninja_version=1.10.0
-ARG ninja_installer=ninja-linux.zip
-RUN wget --no-verbose https://github.com/ninja-build/ninja/releases/download/v$ninja_version/$ninja_installer \
-&& unzip $ninja_installer \
+ARG ninja_zip=ninja-linux.zip
+RUN wget --no-verbose https://github.com/ninja-build/ninja/releases/download/v$ninja_version/$ninja_zip \
+&& unzip $ninja_zip \
 && cp ninja /usr/bin/ \
-&& rm $ninja_installer
+&& rm $ninja_zip
 RUN if [ "$ninja_version" != "$(ninja --version)" ]; then echo "Ninja version $ninja_version not found!"; exit 1; fi
 
 # Conan
