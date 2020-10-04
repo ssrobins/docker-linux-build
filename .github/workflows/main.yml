@@ -25,4 +25,6 @@ jobs:
         run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image
-        run: docker push ghcr.io/${{ github.repository }}
+        run: docker push ${{ env.DOCKER_IMAGE_NAME }}
+        env:
+          DOCKER_IMAGE_NAME: ghcr.io/${{ github.repository }}
