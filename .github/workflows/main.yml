@@ -7,6 +7,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  DOCKER_IMAGE_NAME: ghcr.io/${{ github.repository }}
+
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -26,5 +29,3 @@ jobs:
 
       - name: Push image
         run: docker push ${{ env.DOCKER_IMAGE_NAME }}
-        env:
-          DOCKER_IMAGE_NAME: ghcr.io/${{ github.repository }}
