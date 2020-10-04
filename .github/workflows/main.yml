@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Print environment
+      - name: Print environment variables
         run: env
 
       - name: Build image
