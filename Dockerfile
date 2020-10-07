@@ -18,14 +18,9 @@ RUN wget --no-verbose https://github.com/ninja-build/ninja/releases/download/v$n
 && rm $ninja_zip
 RUN if [ "$ninja_version" != "$(ninja --version)" ]; then echo "Ninja version $ninja_version not found!"; exit 1; fi
 
-# Conan
-ARG conan_version=1.29.2
+# Pip
 RUN apt-get update \
 && apt-get install --no-install-recommends -y python3-pip python3-setuptools python3-wheel \
-&& pip3 install conan==$conan_version \
-&& apt-get purge -y python3-pip python3-setuptools python3-wheel \
-&& apt-get autoremove -y \
 && rm -rf /var/lib/apt/lists/*
-RUN if [ "$conan_version" != "$(conan --version | grep Conan | cut -d ' ' -f3)" ]; then echo "Conan version $conan_version not found!"; exit 1; fi
 
 RUN gcc --version
