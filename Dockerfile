@@ -2,7 +2,7 @@ ARG gcc_version
 FROM gcc:$gcc_version
 
 # CMake
-ARG cmake_version=3.19.3
+ARG cmake_version=3.19.4
 ARG cmake_installer=cmake-$cmake_version-Linux-x86_64.sh
 RUN wget --no-verbose https://github.com/Kitware/CMake/releases/download/v$cmake_version/$cmake_installer \
 && sh ./$cmake_installer --prefix=/usr --skip-license \
