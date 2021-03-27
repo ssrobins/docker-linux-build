@@ -2,7 +2,7 @@ set -e
 
 cd $(dirname "$0")
 
-gcc_version=9.3.0
+gcc_version=10.2.0
 
 if [ -z "$DOCKER_IMAGE_NAME" ]; then
     DOCKER_IMAGE_NAME=docker-linux-build
